@@ -1,0 +1,42 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Post"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<!-- Course Details Start-->
+<div class="tcd-blog-item sec-spacer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-md-30">
+                <div class="blog-details-item">
+                    <div class="blog-content">
+                        <h2 class="blog-details-title">{{post?.title}}</h2>
+                        <div class="post-meta">
+                        </div>
+                        <div class="blog-desc">
+                            <p [innerHTML]="post?.content"></p>
+                        </div>
+                        <div class="blog-author">
+                            <div class="author-image">
+                                <img src="images/blog/blog-details/author.jpg" alt="Author Image">
+                            </div>
+                            <div class="author-info">
+                                <h5 class="author-title"><a href="#">Mahadi Hassan</a> / <span>Programmer</span></h5>
+                                <p class="author-desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                                    commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus</p>
+                                <p class="author-website mb-0"><a href="#">http://www.mahadihassan.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Comment Section Start -->
+                <div id="tcd-contact-form" class="tcd-contact-form pt-70">
+                    <h2 class="tcd-contact-title">Discussion</h2>
+                    <app-discussions></app-discussions>
+                </div>
+                <!-- Contact Comment Section End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Course Details End-->
+

@@ -1,0 +1,700 @@
+@charset "utf-8";
+
+/**
+*
+* ----------------------------------------------------------
+*
+* Template : Brainda - Online Courses & Learning HTML Template
+* Author : thecodude
+* Author URI : http://thecodude.com/
+*
+* ----------------------------------------------------------
+*
+**/
+
+/* Layout: Max 1199px. */
+@media only screen and (min-width: 1199px) {
+}
+/* Layout: Min 992px Max 1199px. */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .tcd-header-1 .mainmenu ul.nav-menu .tcd-mega-menu .mega-menu {
+        min-width: 930px;
+    }
+    .tcd-course-details .details-top .enroll-details .course-info li {
+        margin-right: 15px;
+    }
+    .tcd-checkout .checkout-part .cart-checkout-info .cart-checkout-btn {
+        display: block;
+    }
+    .tcd-checkout .checkout-part .cart-checkout-info .cart-checkout-btn .terms-text {
+        margin: 20px 0;
+        display: block;
+    }
+    .tcd-checkout .checkout-part .cart-checkout-info .cart-checkout-btn .lock-text i {
+        margin-right: 20px;
+    }
+}
+
+/* Large Layout: 991px. */
+@media only screen and (min-width: 992px) {
+    .tcd-counter.about-counter .single-counter {
+        display: inline-block;
+    }
+    #nav-expander {
+        display: none;
+    }
+    .tcd-header-1 .menu-bar {
+      background-color: #fff;
+    }
+    .tcd-header-1 .mainmenu {
+      text-align: right;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu {
+      display: inline-block;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu > li {
+      display: inline-block;
+      margin-right: 22px;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu > li:last-child {
+      margin-right: 0;
+      position: relative;
+      padding-left: 30px;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu > li:last-child a i {
+      font-size: 25px;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu > li:last-child span {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        display: inline-block;
+        border-radius: 100%;
+        position: absolute;
+        top: 10px;
+        color: #111111;
+        left: 16px;
+        font-size: 12px;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu > li:last-child:before {
+      content: '|';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 26px;
+      font-weight: normal;
+      color: #fecc00;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu > li > a {
+      display: block;
+      color: #232323;
+      text-transform: capitalize;
+      font-weight: 400;
+      position: relative;
+      height: 70px;
+      line-height: 70px;
+      -webkit-transition: 0.35s all ease-in-out;
+      transition: 0.35s all ease-in-out;
+      font-size: 15px;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu > li:hover > a, 
+    .tcd-header-1 .mainmenu ul.nav-menu > li.active > a,
+    .tcd-header-1 .mainmenu ul.nav-menu li.parent-menu .sub-menu li.active a,
+    .tcd-header-1 .mainmenu ul.nav-menu li.parent-menu .single-megamenu li.active a {
+        color: #777777;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu li.parent-menu .sub-menu {
+      position: absolute;
+      top: 100%;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      background: #1a1a1a;
+      transition: 0.4s;
+      padding: 10px 15px;
+      text-align: left;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+      min-width: 200px;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu li.parent-menu .sub-menu li a {
+      padding: 6px 0;
+      color: #bbb;
+      display: block;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu li.parent-menu:hover .sub-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu .tcd-mega-menu .mega-menu {
+      min-width: 1110px;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      background: #1a1a1a;
+      transition: 0.4s;
+      padding: 30px;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu .tcd-mega-menu .mega-menu .single-megamenu {
+      display: inline-block;
+      width: 33%;
+      float: left;
+      text-align: left;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu .tcd-mega-menu .mega-menu .single-megamenu .menu-title {
+      font-size: 19px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu .tcd-mega-menu .mega-menu .single-megamenu li a {
+      padding: 6px 0;
+      display: block;
+      color: #bbb;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu .tcd-mega-menu .mega-menu .single-megamenu li a:hover, 
+    .tcd-header-1 .mainmenu ul.nav-menu li.parent-menu .sub-menu li a:hover {
+        color: #ffffff;
+    }
+    .tcd-header-1 .mainmenu ul.nav-menu .tcd-mega-menu:hover .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .tcd-header-1 .mainmenu span #nav-expander {
+      transition: 0.3s;
+    }
+    .tcd-header-1 .menu-bar {
+      position: relative;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      -webkit-transition: 0.7s;
+      -ms-transition: 0.7s;
+    }
+    .tcd-header-1 .menu-bar.sticky {
+      background: #fff;
+    }
+    .tcd-header-1 .menu-bar.sticky .logo {
+      height: 75px;
+      line-height: 75px;
+    }
+    .tcd-header-1 .menu-bar.sticky .logo img {
+      max-width: 210px;
+    }
+    .tcd-header-1 .menu-bar.sticky .mainmenu ul.nav-menu > li > a {
+      height: 75px;
+      line-height: 75px;
+    }   
+    .menu-sticky.sticky {
+        position: fixed;
+        z-index: 99;
+        width: 100%;
+        -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
+        -webkit-animation: fadeInDown 0.5s linear;
+        animation: fadeInDown 0.5s linear;
+    }
+    nav.canvas-menu-area {
+        display: none;
+    }
+
+}
+
+/* Medium Layout: 991px. */
+@media only screen and (max-width: 991px) {
+    .hidden-md {
+        display: none !important;
+    }
+    .mb-md-20 {
+        margin-bottom: 20px !important;
+    }
+    .mb-md-30 {
+        margin-bottom: 30px !important;
+    }    
+    .text-center-md {
+        text-align: center !important;
+    }
+    a.nav-expander {
+        background: transparent;
+        color: #232323;
+        display: block;
+        font-size: 20px;
+        font-weight: 400;
+        height: auto;
+        margin-right: 0;
+        padding: 0;
+        position: absolute;
+        right: 15px;
+        text-decoration: none;
+        text-transform: uppercase;
+        top: 50%;
+        margin-top: -14px;
+        width: auto;
+        z-index: 12;
+        -webkit-transition: right 0.3s ease-in-out 0s;
+        transition: right 0.3s ease-in-out 0s;
+    }
+    a.nav-expander:hover {
+        cursor: pointer;
+    }
+    nav.canvas-menu-area {
+        display: block;
+        height: 100%;
+        overflow: auto;
+        position: fixed;
+        right: -24em;
+        font-size: 15px;
+        top: 0;
+        width: 24em;
+        z-index: 99999;
+        transition: right 0.3s ease-in-out 0s;
+        -webkit-transition: right 0.3s ease-in-out 0s;
+        -moz-transition: right 0.3s ease-in-out 0s;
+        -o-transition: right 0.3s ease-in-out 0s;
+        background: #1a1a1a;
+    }
+    .nav-expanded nav {
+        right: 0;
+    }
+    body.nav-expanded {
+        margin-left: 0em;
+        transition: right 0.4s ease-in-out 0s;
+        -webkit-transition: right 0.4s ease-in-out 0s;
+        -moz-transition: right 0.4s ease-in-out 0s;
+        -o-transition: right 0.4s ease-in-out 0s;
+        position: relative;
+    }
+    body.nav-expanded:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+    }
+    .canvas-menu-area {
+        padding: 0 30px;
+    }
+    .canvas-menu-area .canvas-logo {
+        margin-bottom: 15%;
+    }
+    .canvas-menu-area .canvas-logo img {
+        max-width: 180px;
+    }
+    .canvas-menu-area .close-btn {
+        overflow: hidden;
+        padding: 5px 10px;
+    }
+    .canvas-menu-area .find-post {
+        margin-top: 40px;
+    }
+    .canvas-menu-area .find-post span {
+        color: #fff;
+        margin-bottom: 6px;
+        display: block;
+    }
+    .canvas-menu-area .find-post input {
+        width: 100%;
+        border: none;
+        padding: 5px 10px;
+    }
+    .canvas-menu-area .social-link {
+        margin-top: 40px;
+    }
+    .canvas-menu-area .social-link ul li {
+        display: inline-block;
+        padding-right: 10px;
+    }
+    .canvas-menu-area .social-link ul li:last-child {
+        padding-right: 0;
+    }
+    .canvas-menu-area .social-link ul li a {
+        display: block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        background: #ffffff;
+        line-height: 40px;
+        color: #fecc00;
+        font-size: 18px;
+    }
+    .canvas-menu-area .social-link ul li a:hover {
+        color: #fff;
+    }
+    .canvas-menu-area .social-link ul li.facebook a:hover {
+        background: #3B5998;
+    }
+    .canvas-menu-area .social-link ul li.twitter a:hover {
+        background: #00B2FF;
+    }
+    .canvas-menu-area .social-link ul li.google-plus a:hover {
+        background: #DD4B39;
+    }
+    .canvas-menu-area .social-link ul li.linkedin a:hover {
+        background: #0077B5;
+    }
+    .canvas-menu-area .copy-right {
+        color: #ffffff;
+        margin-top: 40px;
+    }
+    .canvas-menu-area .nav-menu {
+        margin-top: 72px;
+    }
+    .canvas-menu-area .nav-menu li.menu-title {
+        text-transform: uppercase;
+        font-size: 15px;
+        padding: 1px 0;
+        color: #b1910e;
+    }
+    .canvas-menu-area .nav-menu > li a {
+        color: #999;
+        font-weight: 500;
+        padding: 7px 0;
+        display: block;
+    }
+    .canvas-menu-area .nav-menu > li a:hover {
+        color: #fff;
+    }
+    .canvas-menu-area .nav-menu .sub-menu > li a {
+        text-transform: capitalize;
+        padding: 8px 0;
+    }
+    .canvas-menu-area .single-megamenu {
+        margin-bottom: 10px;
+    }
+    .canvas-menu-area .nav-menu li.cart-icon {
+        position: relative;
+    }
+    .canvas-menu-area .nav-menu li.cart-icon a i {
+        font-size: 25px;
+    }
+    .canvas-menu-area .nav-menu li.cart-icon a span {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        display: inline-block;
+        border-radius: 100%;
+        position: absolute;
+        top: 5px;
+        background: #fecc00;
+        color: #111111;
+    }
+    span#nav-close {
+        font-size: 0;
+        cursor: pointer;
+        border-radius: 50%;
+        position: absolute;
+        top: 40px;
+        left: 30px;
+        transform: rotate(-4deg);
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -ms-transition: 0.4s;
+    }
+    span#nav-close:after {
+        content: '\f00d';
+        font-family: fontAwesome;
+        font-size: 28px;
+    }
+    span#nav-close:hover {
+        color: #fff;
+    }
+    .hidden-menu {
+        display: none;
+    }
+    .hidden-menu.showhide {
+        display: block !important;
+    }
+    .tcd-toolbar {
+        padding: 15px 0;
+    }
+    .tcd-toolbar .toolbar-contact {
+        padding-bottom: 15px;
+    }
+    .tcd-title {
+        margin-bottom: 45px;
+    }
+    .tcd-title h2 {
+        margin: 0 0 10px;
+        font-size: 25px;
+    }
+    .tcd-title h2:after {
+        bottom: -10px;
+    }
+    .owl-carousel .owl-nav [class*="owl-"] {
+        top: -84px;
+    }
+    .tcd-services {
+        padding: 50px 0;
+    }
+    .tcd-services .row > [class*="col-"] + [class*="col-"] {
+        margin-top: 25px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .tcd-testimonial .testi-item .testi-info .testi-desc {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .related-course .single-course .course-content .enroll-price {
+        display: block;
+    }
+    .related-course .single-course .course-content .enroll-price span {
+        float: unset;
+    }
+    .tcd-counter.about-counter .single-counter .counter-number {
+        margin: 0;
+    }
+    .tcd-checkout .checkout-part .cart-checkout-info .cart-checkout-btn {
+        display: block;
+    }
+    .tcd-checkout .checkout-part .cart-checkout-info .cart-checkout-btn .terms-text {
+        margin: 20px 0;
+        display: block;
+    }
+    .tcd-checkout .checkout-part .cart-checkout-info .cart-checkout-btn .lock-text i {
+        margin-right: 20px;
+    }
+    .tcd-checkout .checkout-part .paypal-payment-img img {
+        max-width: 100px;
+    }
+    .contact-title .tcd-contact-subtitle {
+        max-width: unset;
+    }
+    .tcd-contact-info .single-icon {
+        margin-bottom: 30px;
+        display: block;
+    }
+    .tcd-copyright .copyright-text {
+        margin-bottom: 15px;
+    }
+
+    .tcd-footer .footer-widget ul li + li, 
+    .course-category-list li + li {
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .tcd-counter .single-counter {
+        display: block;
+        padding: 33px 25px;
+        margin-bottom: 30px;
+        background: #fbf6f6;
+        border: 1px solid #eee;
+        margin-right: 0;
+        text-align: center;
+        border-radius: 3px;
+    }
+    .tcd-counter .single-counter:after {
+        display: none;
+    }
+    .tcd-counter .single-counter .count-icon {
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    
+}
+
+/* Mobile Layout: 767px. */
+@media only screen and (max-width: 767px) {
+
+    h1 {
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .owl-carousel .owl-dots {
+        display: none;
+    }
+    .tcd-testimonial .testi-item .testi-info .testi-desc {
+        font-size: 15px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+    .tcd-accordion .accordion .card .card-header .card-title {
+        height: 50px;
+        line-height: 50px;
+    }
+    .tcd-course-item .tcd-course-tab .nav-tabs {
+        top: -90px;
+    }
+    
+    .tcd-tutor-info .tutor-details .tutor-experience li {
+        display: block;
+    }
+    .tcd-tutor-info .tutor-details .tutor-experience li .post-title{
+        min-width: unset;
+        margin-right: 15px;
+    }
+    .tcd-tutor-info .tutor-details .tutor-experience li .post-name {
+        display: inline-block;
+        margin-top: 15px;
+    }
+    .tcd-course-details .details-top .enroll-details .enroll-btn{
+        float: none;
+        margin-top: 10px;
+    }
+    .tcd-checkout .checkout-part .payment-part .payment-icon .payment-icon-img {
+        width: 32px;
+        padding-right: 3px;
+    }
+}
+
+/* Small Device : 575px. */
+@media only screen and (max-width: 575px) {
+    .owl-carousel .owl-nav {
+        display: none;
+    }
+    .tcd-banner .banner-wrapper .banner-content .tcd-banner-search-box {
+        max-width: 300px;
+    }
+    .tcd-banner .banner-wrapper .banner-content .tcd-banner-search-box input {
+        font-size: 16px;
+    }
+    .tcd-testimonial {
+        padding-bottom: 50px;
+    }
+    .tcd-testimonial .testi-item .testi-info {
+        padding: 15px 0 0;
+    }
+    .tcd-testimonial .testi-item .testi-photo img {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    .tcd-course-item .course-dropdown {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .tcd-course-item .tcd-course-tab .nav-tabs {
+        left: 55%;
+        transform: translateX(-50%);
+        top: -40px;
+    }
+    .tcd-blog-item .blog-details-item .blog-content .post-type .post-tag,
+    .tcd-blog-item .blog-details-item .blog-content .post-type .post-type {
+        float: unset;
+        display: block;
+    }
+    blockquote {
+        margin: 20px;
+        margin-left: 0;
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .tcd-blog-item .blog-details-item .blog-content .blog-author .author-image {
+        float: unset;
+        display: block;
+        margin: 0 0 20px;
+    }
+    .tcd-pagination .pagination-list li a {
+        padding: 10px;
+    }
+    .tcd-course-cart .cart-item .single-cart,
+    .tcd-course-cart .cart-item .single-cart .left-part,
+    .tcd-course-cart .cart-item .single-cart .right-part {
+        display: block;
+    }
+    .tcd-course-cart .cart-item .single-cart .left-part .cart-desc {
+        padding: 10px 0;
+    }
+    .tcd-course-cart .cart-item .single-cart .right-part .cart-price {
+        margin: 5px 0 0;
+    }
+
+    .tcd-accordion .accordion .card .card-header .card-title .accordion-toggle {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-right: 43px;
+    }
+}
+
+/* Small Device : 480px. */
+@media only screen and (max-width: 480px) {
+    nav.canvas-menu-area {
+        right: -20em;
+        width: 20em;
+    }
+    .nav-expanded nav{
+        right: 0;
+    }
+    .modal .modal-dialog .modal-footer .footer-text span.left-text, 
+    .modal .modal-dialog .modal-footer .footer-text span.right-text {
+        float: unset;
+        display: block;
+        text-align: center;
+    }
+    .tcd-toolbar .toolbar-contact a {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .tcd-toolbar .toolbar-contact a:last-child {
+        margin: 0;
+        padding: 0;
+    }
+    .tcd-toolbar .toolbar-contact a + a:before {
+        display: none;
+    }
+    .tcd-breadcrumbs .breadcrumbs-image .breadcrumbs-inner .breadcrumbs-text .breadcrumbs-title-part,
+    .tcd-breadcrumbs .breadcrumbs-image .breadcrumbs-inner .breadcrumbs-text .breadcrumbs-subtitle {
+        float: unset;
+        text-align: center;
+    }
+    .tcd-breadcrumbs .breadcrumbs-image .breadcrumbs-inner .breadcrumbs-text .breadcrumbs-title-part .breadcrumbs-title {
+        margin-bottom: 10px;
+    }
+    .tcd-store .store-text .store-title {
+        margin: 0 0 10px;
+    }
+    .tcd-store .store-text .store-img a {
+        display: block;
+        margin: 0 0 15px;
+    }
+    .tcd-course-item .tcd-course-tab .nav-tabs {
+        display: none;
+    }
+    .tcd-course-details .covered-course .course-btn {
+        display: block;
+        margin: 10px 0;
+    }
+    .related-course .single-course .course-content .enroll-price span {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+    .related-course .single-course .course-content .course-desc {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    .tcd-pagination .pagination-list li a {
+        padding: 5px;
+        font-size: 13px;
+    }
+    .tcd-checkout .checkout-part .payment-part .payment-icon {
+        width: 72px;
+        overflow: scroll;
+        height: 28px;
+    }
+    .tcd-map #googleMap {
+        height: 300px;
+    }
+    .tcd-course-item .tab-content {
+        margin: 50px 15px 0;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .hidden-sm {
+        display: none;
+    }
+}

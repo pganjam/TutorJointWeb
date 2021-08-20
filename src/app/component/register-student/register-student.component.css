@@ -1,0 +1,20 @@
+.full-width-field {
+  display: block;
+}
+  
+mat-card-title{
+  color:black;
+  background-color: #fecc00;
+  font-size:20px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  
+}
+
+.outline {
+  border-color: grey;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 5px;
+}

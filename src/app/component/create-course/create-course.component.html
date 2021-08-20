@@ -1,0 +1,246 @@
+<!-- Breadcrumbs Start -->
+<div class="tcd-breadcrumbs">
+    <div class="breadcrumbs-image">
+        <img src="assets/images/breadcrumbs/course-breadcrumbs.jpg" alt="Breadcrumbs Image">
+        <div class="breadcrumbs-inner">
+            <div class="container">
+                <div class="breadcrumbs-text align-items-center">
+                    <div class="breadcrumbs-title-part">
+                        <h2 class="breadcrumbs-title">Add <span>Course</span></h2>
+                    </div>
+                    <ul class="breadcrumbs-subtitle">
+                        <li><a routerLink='/home' routerLinkActive="activate"><i class="fa fa-home"></i> Home</a></li>
+                        <li>/ Add Course</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="profile-page">
+    <mat-vertical-stepper #stepper>
+        <mat-step [stepControl]="courseOverview">
+            <ng-template matStepLabel>Overview</ng-template>
+            <div class="course-info">
+                <div class="container">
+                    <form [formGroup]="courseOverview">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <mat-form-field>
+                                    <input matInput placeholder="Title" required formControlName="title">
+                                    <mat-error *ngIf="courseOverview.controls['title'].hasError('required')">
+                                        Title is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="post-content">Description</label>
+                                <ckeditor [editor]="editor" [formControlName]="'description'">
+                                </ckeditor>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="form-group col-md-12">
+                                    <mat-form-field>
+                                        <mat-select placeholder="Category" required formControlName="category" multiple>
+                                          <mat-option *ngFor="let category of getCategories()" [value]="category">{{category}}</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="courseOverview.controls['category'].hasError('required')">
+                                            Category is required!
+                                        </mat-error>
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="file">Course Image</label>
+                                <input formControlName="file" id="file" type="file" class="form-control"
+                                    (change)="onFileChange($event)">
+                                <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="footer" style="padding-top: 20px;">
+                                    <button class="btn btn-primary" style="float: right; width: 100px;"
+                                        mat-raised-button color="accent" matStepperNext>Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-step>
+
+        <mat-step [stepControl]="courseGoals">
+            <ng-template matStepLabel>Course Goals</ng-template>
+            <div class="course-goals">
+                <div class="container">
+                    <form [formGroup]="courseGoals">
+                        <div class="row" formArrayName="goals">
+                            <div class="col-md-12">
+                                <div class="card" *ngFor="let goal of goalArray.controls; let i=index;"
+                                    [formGroupName]="i">
+                                    <div class="card-header bg-light">
+                                        <div class="row">
+                                            <div class="column col-md-8">
+                                                <h2>Goal: {{i + 1}}</h2>
+                                            </div>
+                                            <div class="column col-md-4"
+                                                style="display: flex; justify-content: flex-end">
+                                                <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                                    <mat-icon class="delete" (click)="removeGoal(i)">delete
+                                                    </mat-icon>
+                                                </button>
+                                                <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                                    <mat-icon class="add" (click)="addGoal()">add</mat-icon>
+                                                </button>
+                                                <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                                    <mat-icon class="done" (click)="doneGoal(goal)">done
+                                                    </mat-icon>
+                                                </button>
+                                                <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                                    <mat-icon class="pencil" (click)="editGoal(goal)">edit
+                                                    </mat-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <mat-form-field>
+                                                    <mat-label>Goal Description</mat-label>
+                                                    <input matInput type="text" formControlName="description">
+                                                </mat-form-field>
+                                                <mat-error *ngIf="goal.get('description')?.hasError('required')">
+                                                    Goal description is required!
+                                                </mat-error>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="footer" style="padding-top: 20px;">
+                                    <button class="btn btn-primary" style="float: right; width: 100px;"
+                                        mat-raised-button color="accent" matStepperNext>Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-step>
+
+        <mat-step [stepControl]="courseCurriculum">
+            <ng-template matStepLabel>Modules</ng-template>
+            <div class="course-curriculum">
+                <div class="container">
+                    <form [formGroup]="courseCurriculum">
+                        <div class="row" formArrayName="modules">
+                            <div class="col-md-12">
+                                <div class="card" *ngFor="let module of moduleArray.controls; let i = index;"
+                                    [formGroupName]="i">
+                                    <div class="card-header bg-light">
+                                        <div class="row">
+                                            <div class="column col-md-8">
+                                                <h2>Module: {{i + 1}}</h2>
+                                            </div>
+                                            <div class="column col-md-4" style="display: flex; justify-content: flex-end">
+                                                <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                                    <mat-icon class="delete" (click)="removeModule(i)">delete
+                                                    </mat-icon>
+                                                </button>
+                                                <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                                    <mat-icon class="add" (click)="addModule()">add</mat-icon>
+                                                </button>
+                                                <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                                    <mat-icon class="done" (click)="doneModule(module)">done
+                                                    </mat-icon>
+                                                </button>
+                                                <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                                    <mat-icon class="pencil" (click)="editModule(module)">edit
+                                                    </mat-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <mat-form-field>
+                                                    <mat-label>Module Description</mat-label>
+                                                    <input matInput type="text" formControlName="description">
+                                                </mat-form-field>
+                                                <mat-error *ngIf="module.get('description')?.hasError('required')">
+                                                    Module description is required!
+                                                </mat-error>
+        
+                                                <div class="row" formArrayName="lessons">
+                                                    <div class="col-md-12">
+                                                        <div *ngFor="let lesson of getLessonArray(i).controls; let j = index;"
+                                                            [formGroupName]="j">
+                                                            <div class="card-header bg-light">
+                                                                <div class="row">
+                                                                    <div class="column col-md-8">
+                                                                        <h2>Lesson: {{j + 1}}</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div *ngIf="module.get('isEditable')?.value">
+                                                                            <mat-form-field class="form-group col-md-12">
+                                                                                <mat-label>Lesson Description
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                    formControlName="description">
+                                                                            </mat-form-field>
+                                                                            <mat-error
+                                                                                *ngIf="lesson.get('description')?.hasError('required')">
+                                                                                Lesson description is required!
+                                                                            </mat-error>
+                                                                        </div>
+                                                                        <div *ngIf="!module.get('isEditable')?.value">
+                                                                            {{lesson.get('description')?.value}}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="module.get('isEditable')?.value"
+                                                            class="lesson-button-group">
+                                                            <button class="btn btn-primary mr-2 mb-2" mat-raised-button
+                                                                color="accent" (click)="addLesson(i)">Add Lesson</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="footer" style="padding-top: 20px;">
+                                <button class="btn btn-primary mr-2 mb-2" style="float: right; width: 100px;" mat-raised-button
+                                    color="accent" matStepperNext>Back</button>
+                                <button class="btn btn-primary mr-2 mb-2" style="float: right; width: 100px;" mat-raised-button
+                                    color="accent" (click)="stepper.reset()">Reset</button>
+                                <button class="btn btn-primary mr-2 mb-2" style="float: right; width: 100px;" mat-raised-button
+                                    color="accent" (click)="submit()">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-step>
+    </mat-vertical-stepper>
+</div>

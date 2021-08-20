@@ -1,0 +1,128 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Instructor Details"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<!-- Tutor Details Start -->
+<div id="tcd-tutor-info" class="tcd-tutor-info sec-spacer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 mb-md-30">
+                <div class="tutor-image-part shadow bg-white rounded">
+                    <div class="tutor-img">
+                        <img src="{{instructor?.avatar?.base64String}}" alt="Course Image">
+                    </div>
+                    <div class="tutor-info">
+                        <h5 class="tutor-name">{{instructor?.fullName}}</h5>
+                        <p class="tutor-post">{{instructor?.occupation}}</p>
+                        <ul class="social-info">
+                            <li><a href="tel:{{instructor?.mobilePhone}}"><i class="icofont-phone"></i></a></li>
+                            <li><a href="mailto:{{instructor?.emailAddress}}"><i class="icofont-ui-email"></i></a></li>
+                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                            <li><a href=""><i class="icofont-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="tutor-details">
+                    <div class="tutor-info mb-30">
+                        <h3 class="tutor-name">{{instructor?.fullName}}</h3>
+                        <p class="tutor-post">{{instructor?.occupation}}</p>
+                        <p class="tutor-location">{{instructor?.city}}, {{instructor?.state}} </p>
+                    </div>
+                    <ul class="tutor-experience mb-md-30">
+                        <li>
+                            <span class="post-title">Education</span>
+                            <i class="icofont-network-tower"></i>
+                            <span class="post-name">{{instructor?.education}}</span>
+                        </li>
+                        <li>
+                            <span class="post-title">Teaching Experience</span>
+                            <i class="icofont-network"></i>
+                            <span class="post-name">{{instructor?.experience}}</span>
+                        </li>
+                        <li>
+                            <span class="post-title">Teaching Preference</span>
+                            <i class="icofont-macbook"></i>
+                            <span class="post-name">{{instructor?.preference}}</span>
+                        </li>
+                    </ul>
+                    <!-- Counter Start -->
+                    <div class="tcd-counter">
+                        <div class="single-counter">
+                            <h4 class="counter-title">Total Students</h4>
+                            <div class="count-icon"><i class="icofont-group-students"></i></div>
+                            <h2 class="counter-number">180</h2>
+                        </div>
+                        <div class="single-counter">
+                            <h4 class="counter-title">Courses</h4>
+                            <div class="count-icon"><i class="icofont-read-book"></i></div>
+                            <h2 class="counter-number">{{instructor?.courseCount}}</h2>
+                        </div>
+                        <div class="single-counter">
+                            <h4 class="counter-title">Reviews</h4>
+                            <div class="count-icon"><i class="icofont-match-review"></i></div>
+                            <h2 class="counter-number">190</h2>
+                        </div>
+                    </div>
+                    <!-- Counter End -->
+
+                    <div class="col-lg-6 col-md-6 mb-30">
+                        <a mat-raised-button color="accent" href="/availability/{{instructor.instructorId}}">Book Tutor Time</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Tutor Details End -->
+
+<!-- Course Item Start-->
+<div id="tcd-course-item" class="tcd-course-item pb-70">
+    <div class="container">
+        <div class="tcd-title">
+            <h2>Courses by Instructor</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-30"
+                *ngFor="let course of courses | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                <div class="single-course shadow bg-white rounded">
+                    <div class="img-container">
+                        <img class="course-img" src="{{course?.avatar?.base64String}}" alt="Course Image">
+                    </div>
+                    <div class="course-content">
+                        <h4 class="course-title"><a routerLink="/courses/{{course?.id}}"
+                                routerLinkActive="active">{{course['title']}}</a></h4>
+                        <h6 class="course-author"><a href="/tutors/{{course?.tutor_id}}">Pavan Ganjam</a></h6>
+                        <div class="course-rating">
+                            <ul>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star-half"></i></li>
+                            </ul>
+                            <span class="rating-number">4.5</span>
+                            <span class="enroll-number">(85,500)</span>
+                        </div>
+                        <div *ngIf="isStudent" class="enroll-price">
+                            <button (click)="enroll(course)" class="enroll-btn readon active">Enroll Now</button>
+                            <span class="sell-price">$35.00</span>
+                            <span class="previous-price">$75.00</span>
+                        </div>
+                        <div *ngIf="!isStudent" class="enroll-price">
+                            <span style="float: left;" class="sell-price">$35.00</span>
+                            <span style="float: left;" class="previous-price">$75.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tcd-pagination text-center mt-50">
+            <ngb-pagination class="pagination-list" [collectionSize]="courses.length" [(page)]="page" [maxSize]="5"
+                [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+        </div>
+    </div>
+</div>
+<!-- Course Item End-->

@@ -1,0 +1,23 @@
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-card {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .block {
+    display: block;
+    width: 300px;
+    border: none;
+    padding: 5px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }

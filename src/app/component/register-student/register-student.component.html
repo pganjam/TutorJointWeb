@@ -1,0 +1,147 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Student Registration"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<div class="form-group">
+    <div class="alert alert-danger" role="alert" *ngIf="errorFlag">
+        Failed to Register Instructor, Error Message: {{ error }}
+    </div>
+</div>
+
+
+<div class="student-register sec-spacer">
+    <div class="container">
+        <form [formGroup]="registrationInfo">
+            <mat-card class="mb-3 mat-elevation-z0 outline">
+                <mat-card-title>Bio Information</mat-card-title>
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <mat-form-field appearance="fill" class="full-width-field">
+                            <mat-label>First Name</mat-label>
+                            <input matInput placeholder="First Name" required formControlName="firstName">
+                            <mat-error *ngIf="registrationInfo.controls['firstName'].hasError('required')">
+                                First Name is required!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="fill" class="full-width-field">
+                            <mat-label>Middle Name</mat-label>
+                            <input matInput placeholder="Middle Name" formControlName="middleName">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="fill" class="full-width-field">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput placeholder="Last Name" required formControlName="lastName">
+                            <mat-error *ngIf="registrationInfo.controls['lastName'].hasError('required')">
+                                Last Name is required!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="fill" class="full-width-field">
+                            <mat-select placeholder="Gender (Dropdown)" id="gender" formControlName="gender">
+                                <mat-option *ngFor="let data of values" [value]="data">{{data}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="registrationInfo.controls['gender'].hasError('required')">
+                                Gender is required!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card>
+            <mat-card class="mb-3 mat-elevation-z0 outline">
+                <mat-card-title>Contact Information</mat-card-title>
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <mat-form-field appearance="fill" class="full-width-field">
+                            <mat-label>Email Address</mat-label>
+                            <input matInput placeholder="Email Address" required formControlName="emailAddress">
+                            <mat-error *ngIf="registrationInfo.controls['emailAddress'].hasError('required')">
+                                Email Address is required!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="fill" class="full-width-field">
+                            <mat-label>Home Phone</mat-label>
+                            <input matInput placeholder="Home Phone" formControlName="homePhone">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="fill" class="full-width-field">
+                            <mat-label>Cell Phone</mat-label>
+                            <input matInput placeholder="Cell Phone" required formControlName="mobilePhone">
+                            <mat-error *ngIf="registrationInfo.controls['mobilePhone'].hasError('required')">
+                                Cell Phone is required!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card>
+            <mat-card class="mb-3 mat-elevation-z0 outline">
+                <mat-card-title>Address</mat-card-title>
+                <mat-card-content>
+                    <div class="row mb-4">
+                        <h5 class="mb-3"></h5>
+                        <div class="col-md-6">
+                            <mat-form-field appearance="fill" class="full-width-field">
+                                <mat-label>Street Address 1</mat-label>
+                                <input matInput placeholder="Street Address 1" required
+                                    formControlName="streetAddress1">
+                                <mat-error *ngIf="registrationInfo.controls['streetAddress1'].hasError('required')">
+                                    Street Address 1 is required!
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field appearance="fill" class="full-width-field">
+                                <mat-label>Street Address 2</mat-label>
+                                <input matInput placeholder="Street Address 2" formControlName="streetAddress2">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <mat-form-field appearance="fill" class="full-width-field">
+                                <mat-label>City</mat-label>
+                                <input matInput placeholder="City" required formControlName="city">
+                                <mat-error *ngIf="registrationInfo.controls['city'].hasError('required')">
+                                    City is required!
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="fill" class="full-width-field">
+                                <mat-label>State</mat-label>
+                                <input matInput placeholder="State" required formControlName="state">
+                                <mat-error *ngIf="registrationInfo.controls['state'].hasError('required')">
+                                    State is required!
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="fill" class="full-width-field">
+                                <mat-label>Zip Code</mat-label>
+                                <input matInput placeholder="Zip Code" required formControlName="zipCode">
+                                <mat-error *ngIf="registrationInfo.controls['zipCode'].hasError('required')">
+                                    Zip is required!
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <button class="btn btn-primary mr-2 mb-2" style="float: right; width: 100px;" mat-raised-button
+                        color="accent" (click)="submit()">Register</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<!-- Popular Course Start-->
+<mat-toolbar color="accent">
+    <mat-toolbar-row>
+        <h3>Student Page</h3>
+        <span class="menu-spacer"></span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened [disableClose]="true">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['/student-page/'+this.studentId, {outlets: {'content-view': ['overview']}}]">Overview</a>
+        <a mat-list-item [routerLink]="['/student-page/'+this.studentId, {outlets: {'content-view': ['my-courses']}}]">Enrollments</a>
+        <a mat-list-item [routerLink]="['/student-page/'+this.studentId, {outlets: {'content-view': ['events']}}]">My Schedule</a>
+        <a mat-list-item [routerLink]="['/student-page/'+this.studentId, {outlets: {'content-view': ['announcements']}}]">Announcements</a>
+        <a mat-list-item [routerLink]="['/student-page/'+this.studentId, {outlets: {'content-view': ['discussions']}}]">Discussions</a>
+        <a mat-list-item [routerLink]="['/student-page/'+this.studentId, {outlets: {'content-view': ['resources']}}]">Resources</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 100vh">
+        <router-outlet name="content-view"></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

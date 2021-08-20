@@ -1,0 +1,58 @@
+:host ::ng-deep .ck-editor__editable_inline {
+    min-height: 100px;
+  }
+
+p {
+    font-family: Lato;
+}
+  
+.primary-container {
+    margin: 5px;
+    margin-bottom: 15px;
+}
+  
+.primary-container mat-form-field {
+    margin-right: 10px;
+}
+  
+.module-container {
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.module-container fieldset {
+  display: table-cell;
+  width: 100;
+  border: 1px solid gray !important;
+  border-radius: 5px;
+  border-top-right-radius: 0 !important;
+  }
+  legend {
+      width: inherit !important;
+      padding: 0 5px !important;
+      border-style: none none !important;
+      text-align: right !important;
+      border-left: 1px solid gray !important;
+      border-right: 1px solid gray !important;
+      border-top: 1px solid gray !important;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      margin-right: -1px !important;
+      margin-top: -9px !important;
+  }
+.module-container div mat-form-field {
+    margin-right: 10px;
+}
+  
+.module-container div {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+  
+.pre-code {
+    margin-top: 25px;
+}
+
+.mat-form-field {
+    width: 100%;
+  }

@@ -1,0 +1,43 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Blogs"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<!-- Blog Start-->
+<div id="tcd-blog" class="tcd-blog sec-spacer">
+    <div class="container">
+        <div *ngIf="isTutor" class="row align-items-center mb-50">
+            <div class="col-lg-6 col-md-6 mb-30">
+                <a mat-raised-button color="accent" href="/create-post">Add a New
+                    Blog</a>
+            </div>
+            <div *ngIf="isTutor" class="col-lg-6 col-md-6 mb-30" style="display: flex; justify-content: flex-end">
+                <mat-slide-toggle color="accent" (change)="onChange($event.checked)">
+                    Show My Blogs Only
+                </mat-slide-toggle>
+            </div>
+        </div>
+        <div class="row align-items-center mb-50">
+            <div class="col-lg-3 col-md-6 mb-30"
+                *ngFor="let post of posts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                <div class="blog-item shadow bg-white rounded">
+                    <div class="blog-image">
+                        <img src="assets/images/blog/blog.jpg" alt="Blog Image">
+                        <div class="blog-date">1 days ago</div>
+                    </div>
+                    <div class="blog-content">
+                        <h4 class="blog-title"><a routerLink="/post/{{post['id']}}"
+                                routerLinkActive="active">{{post['title']}}</a></h4>
+                        <h6 class="blog-category"><a href="#">Graphics Design</a></h6>
+                        <h6 class="blog-desc">{{post['title']}}</h6>
+                        <h6 class="blog-author">by <a href="#">{{post['username']}}</a></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center p-2">
+            <ngb-pagination [collectionSize]="posts.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true">
+            </ngb-pagination>
+        </div>
+    </div>
+</div>
+<!-- Blog End-->

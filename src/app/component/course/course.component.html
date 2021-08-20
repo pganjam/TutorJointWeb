@@ -1,0 +1,277 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Course"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<!-- Course Details Start-->
+<div class="tcd-course-item sec-spacer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-md-30">
+                <div class="tcd-course-details">
+                    <div class="details-top mb-30">
+                        <h3 class="inner-title">{{course?.title}}</h3>
+                        <div class="enroll-details">
+                            <ul class="course-info">
+                                <li>By <span>{{tutor?.fullName}}</span></li>
+                                <li>Categories <span>Backend</span></li>
+                                <li>
+                                    <ul class="course-rating">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star fa-star-half-o"></i></li>
+                                    </ul>
+                                    <span>({{reviews?.length}})</span>
+                                </li>
+                            </ul>
+                            <button *ngIf="!isTutor" (click)="enroll()" class="enroll-btn readon active">Enroll
+                                Now</button>
+                        </div>
+                    </div>
+
+                    <div class="course-overview mb-30">
+                        <div class="course-topics">
+                            <div class="row">
+                                <div class="col-lg-12 mb-md-30">
+                                    <img [src]="course?.avatar?.base64String" [alt]="course?.title">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mb-md-30">
+                                    <h5 class="course-topics-title">About the Course</h5>
+                                    <p [innerHTML]="course?.description"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-overview mb-30">
+                        <div class="course-topics">
+                            <div class="row">
+                                <div class="col-lg-12 mb-md-30">
+                                    <h5 class="course-topics-title">What will you Learn?</h5>
+                                    <ul class="topics-list" *ngFor="let goal of course?.goals">
+                                        <li>{{goal}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-overview mb-30">
+                        <ul class="nav nav-tabs overview-tags" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview"
+                                    role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="curriculum-tab" data-toggle="tab" href="#curriculum" role="tab"
+                                    aria-controls="curriculum" aria-selected="false">Curriculum</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="instructor-tab" data-toggle="tab" href="#instructor" role="tab"
+                                    aria-controls="instructor" aria-selected="false">Instructor</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
+                                    aria-controls="reviews" aria-selected="false">Reviews</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="overview" role="tabpanel"
+                                aria-labelledby="overview-tab">
+                                <div class="course-topics">
+                                    <div class="row">
+                                        <div class="col-lg-5">
+                                            <ul class="overview-stats">
+                                                <li>Skill level<span>Beginner</span></li>
+                                                <li>Duration<span>3 Hours</span></li>
+                                                <li>Lectures<span>6 Class</span></li>
+                                                <li>Language<span>English</span></li>
+                                                <li>Students<span>870</span></li>
+                                                <li>Assessments<span>Yes</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade tcd-accordion" id="curriculum" role="tabpanel"
+                                aria-labelledby="curriculum-tab">
+                                <div id="accordion" class="accordion">
+                                    <div class="card" *ngFor="let module of course?.modules; index as i">
+                                        <div class="card-header" id="heading{{i}}">
+                                            <h5 class="card-title">
+                                                <button class="accordion-toggle collapsed" data-toggle="collapse"
+                                                    attr.data-target="#collapse{{i}}" aria-expanded="false"
+                                                    attr.aria-controls="collapse{{i}}">
+                                                    <span style="margin-left: 10px;">
+                                                        <mat-icon>subject</mat-icon>
+                                                        <span style="margin-left: 20px;">{{module?.description}}</span>
+                                                    </span>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapse{{i}}" class="collapse" attr.aria-labelledby="heading{{i}}"
+                                            data-parent="#accordion">
+                                            <ol class="card-body">
+                                                <li style="margin: 0px 10px 10px 25px;"
+                                                    *ngFor="let lesson of module?.lessons">
+                                                    {{lesson}}
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="course-instructor">
+                                            <h3 class="tutor-name bold">{{tutor?.fullName}}</h3>
+                                            <ul class="tutor-designation">
+                                                <li>{{tutor?.education}}</li>
+                                                <li>{{tutor?.occupation}}</li>
+                                            </ul>
+                                            <div class="course-desc">
+                                                <p [innerHTML]="tutor?.description"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                                <mat-card class="review-card">
+                                    <form [formGroup]="addReviewForm" (ngSubmit)="addReview()"
+                                        (keydown.enter)="$event.preventDefault()">
+                                        <mat-card-title>New Review</mat-card-title>
+                                        <mat-card-subtitle>
+                                            <input-stars formControlName="tutor" label="Tutor"
+                                                [messages]="ratingMessage('tutor')"></input-stars>
+                                            <input-stars formControlName="course" label="Course"
+                                                [messages]="ratingMessage('course')"></input-stars>
+                                        </mat-card-subtitle>
+                                        <mat-card-content>
+                                            <mat-form-field class="form-group col-md-12">
+                                                <mat-label>Leave a comment</mat-label>
+                                                <textarea matInput placeholder="Leave a comment" formControlName="notes"
+                                                    rows="4">
+                                                </textarea>
+                                            </mat-form-field>
+                                        </mat-card-content>
+                                        <mat-card-actions>
+                                            <button mat-button color="accent" class="text-upper">Submit</button>
+                                            <button mat-button class="text-upper">Cancel</button>
+                                        </mat-card-actions>
+                                    </form>
+                                </mat-card>
+
+                                <mat-card class="review-card">
+                                    <mat-card-title>Reviews</mat-card-title>
+                                    <mat-card-subtitle></mat-card-subtitle>
+                                    <mat-card-content>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="courseeviews mb-30"
+                                                    *ngFor="let review of reviews; index as i">
+                                                    <h4 class="client-name bold">{{review?.reviewerId}}</h4>
+                                                    <ul class="client-rating">
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star-half"></i></li>
+                                                        <li><span>(3 Months Ago)</span></li>
+                                                    </ul>
+                                                    <div class="reviews-desc">
+                                                        <p [innerHTML]="review?.notes"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="course-category">
+                    <h4 class="course-topics-title short-border">Related Course</h4>
+                    <div class="related-course">
+                        <div class="single-course">
+                            <div class="course-img">
+                                <img src="assets/images/course/trending/1.jpg" alt="Course Image">
+                            </div>
+                            <div class="course-content">
+                                <a href="#" class="course-desc">Learning jQuery Mobile for Beginners</a>
+                                <div class="course-rating">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star-half"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-course related-style">
+                            <div class="course-img">
+                                <img src="assets/images/course/trending/2.jpg" alt="Course Image 2">
+                            </div>
+                            <div class="course-content">
+                                <a href="#" class="course-desc">Deploying ASP.NET Core Applications</a>
+                                <div class="course-rating">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star-half"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-course related-style">
+                            <div class="course-img">
+                                <img src="assets/images/course/trending/3.jpg" alt="Course Image 3">
+                            </div>
+                            <div class="course-content">
+                                <a href="#" class="course-desc">PHP Tips, Tricks, and Techniques</a>
+                                <div class="course-rating">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star-half"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-course related-style mb-30">
+                            <div class="course-img">
+                                <img src="assets/images/course/trending/4.jpg" alt="Course Image 4">
+                            </div>
+                            <div class="course-content">
+                                <a href="#" class="course-desc">ASP.NET MVC: Building for Productivity </a>
+                                <div class="course-rating">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star-half"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Course Details End-->

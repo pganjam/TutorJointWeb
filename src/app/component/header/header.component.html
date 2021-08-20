@@ -1,0 +1,128 @@
+<!-- Header Start -->
+<header id="tcd-header" class="tcd-header-1">
+    <div class="tcd-toolbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12">
+                    <div class="toolbar-contact text-center-md">
+                        <a routerLink='/contact' routerLinkActive="activate"><i class="icofont-support-faq"
+                                aria-hidden="true"></i>Have any Question?</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12" *ngIf="user">
+                    <div class="toolbar-modal text-right text-center-md">
+                        <button class="signup-btn btn" (click)="logout()">Logout</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12" *ngIf="!user">
+                    <div class="toolbar-modal text-right text-center-md">
+                        <a routerLink='/login' class="signin-btn btn">
+                            <button type="button" class="signin-btn btn">Login</button>
+                        </a>
+                        <a routerLink='/register' class="signup-btn btn">
+                            <button type="button" class="signup-btn btn">Register</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-bar menu-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-9 col-9">
+                    <div class="logo">
+                        <a href="index.html"><img src="assets/images/logos/TutorJoint2.jpg" alt="Logo"></a>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-3 col-3">
+                    <div class="mainmenu">
+                        <ul class="nav-menu hidden-md">
+                            <!-- Courses Menu Start -->
+                            <li class="parent-menu"><a href="#">Courses <i class="icofont-caret-down"
+                                        aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a routerLink='/courses' routerLinkActive="activate">Courses</a> </li>
+                                    <li><a *ngIf="isTutor" routerLink='/create-course'
+                                            routerLinkActive="activate">Create Course</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- Courses Menu End -->
+                            <!-- Pages Menu Start -->
+                            <li class="parent-menu"><a href="#">Blogs <i class="icofont-caret-down"
+                                        aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a routerLink='/posts' routerLinkActive="activate">Blogs</a> </li>
+                                    <li><a *ngIf="isTutor" routerLink='/create-post' routerLinkActive="activate">Add
+                                            Blog</a> </li>
+                                </ul>
+                            </li>
+                            <!-- Pages Menu End -->
+                            <!-- Instructors Menu Start -->
+                            <li class="parent-menu"><a href="#">Tutors <i class="icofont-caret-down"
+                                        aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a *ngIf="isLoggedIn && !isTutor" routerLink='/register-tutor'
+                                            routerLinkActive="activate">Become a
+                                            Tutor</a>
+                                        <a *ngIf="isLoggedIn && isTutor" routerLink='/tutor-page/{{this.userId}}' routerLinkActive="activate">My
+                                            Tutor Page</a>
+                                    </li>
+                                    <li>
+                                        <a *ngIf="isLoggedIn && isTutor" routerLink='/categories'
+                                            routerLinkActive="activate">My Categories</a>
+                                    </li>
+                                    <li>
+                                        <a *ngIf="isLoggedIn && isTutor" routerLink='/officehours'
+                                            routerLinkActive="activate">My Office Hours</a>
+                                    </li>
+                                    <li><a routerLink='/tutors' routerLinkActive="activate">Our Team</a></li>
+                                </ul>
+                            </li>
+                            <!-- Instructors Menu End -->
+
+                            <!-- Students Menu Start -->
+                            <li *ngIf="isLoggedIn" class="parent-menu"><a href="#">Students<i class="icofont-caret-down"
+                                        aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a *ngIf="isStudent" routerLink='/student-page/{{this.userId}}' routerLinkActive="activate">My
+                                            Student Page</a>
+                                        <a *ngIf="!isStudent" routerLink='/register-student'
+                                            routerLinkActive="activate">Become a
+                                            Student</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- Student Menu End -->
+
+
+                            <!-- Company Menu Start -->
+                            <li class="parent-menu"><a href="#">Company <i class="icofont-caret-down"
+                                        aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a *ngIf="isLoggedIn" routerLink='/registration' routerLinkActive="activate">Registration</a> </li>
+                                    <li><a routerLink='/contact' routerLinkActive="activate">Contact</a> </li>
+                                    <li><a routerLink='/checkout' routerLinkActive="activate">Checkout</a> </li>
+
+                                </ul>
+                            </li>
+                            <!-- Company Menu End -->
+
+                            <li><a routerLink='/cart' routerLinkActive="activate"><i class="icofont-cart-alt"
+                                        aria-hidden="true"></i><span>{{itemCount}}</span></a></li>
+
+                        </ul>
+                        <span><a href="#" id="nav-expander" class="nav-expander fixed"><i class="fa fa-bars fa-lg white"
+                                    aria-hidden="true"></i>
+                            </a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header End -->

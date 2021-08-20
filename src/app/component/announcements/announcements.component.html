@@ -1,0 +1,76 @@
+<div class="main-body p-0">
+    <div class="inner-wrapper">
+        <!-- Inner main -->
+        <div class="inner-main">
+            <div class="inner-sidebar-header">
+                <div class="breadcrumbs-image">
+                    <img src="assets/images/breadcrumbs/course-breadcrumbs.jpg" alt="Breadcrumbs Image">
+                    <div class="breadcrumbs-inner">
+                        <div class="container">
+                            <div class="breadcrumbs-text align-items-center">
+                                <div class="breadcrumbs-title-part">
+                                    <h4 class="breadcrumbs-title">Announcements</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Inner main body -->
+
+            <!-- Forum List -->
+            <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
+                <div *ngIf="showNewButton" style="display: flex; justify-content: flex-end">
+                    <div *ngIf="isTutor">
+                        <button mat-raised-button color="accent" (click)="openDialog()">New
+                            Announcement</button>
+                    </div>
+                </div>
+                <div class="card mb-2" *ngFor="let announcement of paginateData; let i=index;">
+                    <div class="card-body p-2 p-sm-3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../../../assets/images/announcementicon.png"
+                                        class="mr-3 rounded-circle" width="50" alt="User" />
+                                    <div class="text-muted small">{{selectedDiscussion?.username}}</div>
+                                </div>
+                                <div class="col-10">
+                                    <span class="meta text-uppercase"><b>{{announcement.course_id}}</b> - <b>{{announcement.title}}</b> 
+                                    </span>
+                                    <h4>
+                                        <div style="font-size: small;">@{{announcement?.createdOn| date:'medium'}}</div>
+                                    </h4>
+                                    <p class="m-0 post_intro">{{announcement.message}}</p>
+
+                                    <div class="text-muted small text-center align-self-center">
+                                        <button class="btn btn-xs text-muted has-icon"><i class="fa fa-thumbs-up fa-lg"
+                                            aria-hidden="true"></i>1</button>
+                                    </div>
+                                </div>
+
+                                <div class="col-1" *ngIf="isTutor" style="display: flex; justify-content: flex-end">
+                                    <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                        <mat-icon class="delete" (click)="removeAnnouncement(i)">delete
+                                        </mat-icon>
+                                    </button>
+                                    <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                        <mat-icon class="pencil" (click)="editAnnouncement(i)">edit
+                                        </mat-icon>
+                                    </button>
+                                </div>
+                            </div>             
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center p-2">
+                    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                        (pageChange)="fetchNextPage();">
+                    </ngb-pagination>
+                </div>
+                <!-- /Forum List -->
+            </div>
+            <!-- /Inner main -->
+        </div>
+    </div>

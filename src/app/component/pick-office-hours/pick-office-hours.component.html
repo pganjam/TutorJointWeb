@@ -1,0 +1,43 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Update Office Hours"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<!-- Course Details Start-->
+<div class="tcd-course-item sec-spacer">
+    <div class="container">
+        <form [formGroup]="officeHoursForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col">
+                    <mat-card class="mb-3 mat-elevation-z0">
+                        <mat-card-header>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <button *ngFor="let element of slots;let i = index" type="button"
+                                (click)="selectSlot(element)" [ngClass]="{
+                                                            'selected' : element.status=='OPEN', 
+                                                            'available': element.status=='CLOSED'
+                                                           }">
+                                <span style="font-family: sans-serif;">{{element?.value}}</span>
+                            </button>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div *ngIf="disableSubmit" class="row mb-4">
+                                <button class="btn btn-primary mr-2 mb-2" style="float: right; width: 100px;"
+                                    mat-raised-button color="accent" (click)="onSubmit()" disabled>
+                                    Submit
+                                </button>
+                            </div>
+                            <div *ngIf="!disableSubmit" class="row mb-4">
+                                <button class="btn btn-primary mr-2 mb-2" style="float: right; width: 100px;"
+                                    mat-raised-button color="accent" (click)="onSubmit()">
+                                    Submit
+                                </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Course Details End-->

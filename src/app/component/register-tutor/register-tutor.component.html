@@ -1,0 +1,321 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Tutor Registration"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<div class="form-group">
+    <div class="alert alert-danger" role="alert" *ngIf="errorFlag">
+        Failed to Register Instructor, Error Message: {{ error }}
+    </div>
+</div>
+
+<div class="tutor-register sec-spacer">
+    <mat-horizontal-stepper #stepper>
+        <mat-step [stepControl]="personalInfo">
+            <ng-template matStepLabel>Personal Information</ng-template>
+            <div class="container">
+                <form [formGroup]="personalInfo">
+                    <mat-card class="mb-3">
+                        <mat-card-title>Bio Information</mat-card-title>
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill" class="full-width-field">
+                                    <mat-label>First Name</mat-label>
+                                    <input matInput placeholder="First Name" required formControlName="firstName">
+                                    <mat-error *ngIf="personalInfo.controls['firstName'].hasError('required')">
+                                        First Name is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill" class="full-width-field">
+                                    <mat-label>Middle Name</mat-label>
+                                    <input matInput placeholder="Middle Name" formControlName="middleName">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill" class="full-width-field">
+                                    <mat-label>Last Name</mat-label>
+                                    <input matInput placeholder="Last Name" required formControlName="lastName">
+                                    <mat-error *ngIf="personalInfo.controls['lastName'].hasError('required')">
+                                        Last Name is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill" class="full-width-field">
+                                    <mat-select placeholder="Gender (Dropdown)" id="gender" formControlName="gender">
+                                        <mat-option *ngFor="let data of values" [value]="data">{{data}}</mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="personalInfo.controls['gender'].hasError('required')">
+                                        Gender is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </mat-card>
+                    <mat-card class="mb-3">
+                        <mat-card-title>Contact Information</mat-card-title>
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill" class="full-width-field">
+                                    <mat-label>Email Address</mat-label>
+                                    <input matInput placeholder="Email Address" required formControlName="emailAddress">
+                                    <mat-error *ngIf="personalInfo.controls['emailAddress'].hasError('required')">
+                                        Email Address is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill" class="full-width-field">
+                                    <mat-label>Home Phone</mat-label>
+                                    <input matInput placeholder="Home Phone" formControlName="homePhone">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field appearance="fill" class="full-width-field">
+                                    <mat-label>Cell Phone</mat-label>
+                                    <input matInput placeholder="Cell Phone" required formControlName="mobilePhone">
+                                    <mat-error *ngIf="personalInfo.controls['mobilePhone'].hasError('required')">
+                                        Cell Phone is required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </mat-card>
+                    <mat-card class="mb-3">
+                        <mat-card-title>Address</mat-card-title>
+                        <mat-card-content>
+                            <div class="row mb-4">
+                                <h5 class="mb-3"></h5>
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <mat-label>Street Address 1</mat-label>
+                                        <input matInput placeholder="Street Address 1" required
+                                            formControlName="streetAddress1">
+                                        <mat-error *ngIf="personalInfo.controls['streetAddress1'].hasError('required')">
+                                            Street Address 1 is required!
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <mat-label>Street Address 2</mat-label>
+                                        <input matInput placeholder="Street Address 2" formControlName="streetAddress2">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <mat-label>City</mat-label>
+                                        <input matInput placeholder="City" required formControlName="city">
+                                        <mat-error *ngIf="personalInfo.controls['city'].hasError('required')">
+                                            City is required!
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <mat-label>State</mat-label>
+                                        <input matInput placeholder="State" required formControlName="state">
+                                        <mat-error *ngIf="personalInfo.controls['state'].hasError('required')">
+                                            State is required!
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <mat-label>Zip Code</mat-label>
+                                        <input matInput placeholder="Zip Code" required formControlName="zipCode">
+                                        <mat-error *ngIf="personalInfo.controls['zipCode'].hasError('required')">
+                                            Zip is required!
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                    <div class="row mb-4">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" mat-raised-button color="accent"
+                                matStepperNext>Next</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="profileInfo">
+            <ng-template matStepLabel>About You</ng-template>
+            <div class="experience-info">
+                <div class="container">
+                    <form [formGroup]="profileInfo">
+                        <mat-card class="mb-3">
+                            <mat-card-title>Profile Information</mat-card-title>
+                            <div class="row mb-4">
+                                <div class="group-gap">
+                                    <!-- Upload image -->
+                                    <div class="avatar-upload">
+                                        <div class="avatar-edit">
+                                            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput
+                                                (change)="uploadFile($event)" />
+                                            <label for="imageUpload" *ngIf="editFile"
+                                                [ngClass]="['custom-label', 'upload-image']"></label>
+                                            <label *ngIf="removeUpload" [ngClass]="['custom-label', 'remove-image']"
+                                                (click)="removeUploadedFile()"></label>
+                                        </div>
+                                        <div class="avatar-preview">
+                                            <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>
+                                        <h4>About Yourself</h4>
+                                    </label>
+                                    <ckeditor [editor]="editor" [formControlName]="'description'"></ckeditor>
+                                </div>
+                            </div>
+                        </mat-card>
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" mat-raised-button color="accent"
+                                    matStepperNext>Next</button>
+                                <button class="btn btn-primary" mat-raised-button color="accent"
+                                    matStepperPrevious>Back</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-step>
+
+
+        <mat-step [stepControl]="educationInfo">
+            <ng-template matStepLabel>Experience/Education</ng-template>
+            <div class="education-info">
+                <div class="container">
+                    <form [formGroup]="educationInfo">
+                        <mat-card class="mb-3">
+                            <mat-card-title>Experience/Education</mat-card-title>
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <mat-label>Highest-Level of Education</mat-label>
+                                        <mat-select formControlName="selectedEducation" [(ngModel)]="selectedEducation">
+                                            <mat-option *ngFor="let education of educationOptions" [value]="education">
+                                                {{education}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-8" *ngIf="selectedEducation=='Other'">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <input matInput placeholder="Provide Education Details"
+                                            formControlName="educationText">
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <mat-label>Occupation</mat-label>
+                                        <mat-select formControlName="selectedOccupation"
+                                            [(ngModel)]="selectedOccupation">
+                                            <mat-option *ngFor="let occupation of occupationOptions"
+                                                [value]="occupation">
+                                                {{occupation}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-8" *ngIf="selectedOccupation=='Other'">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <input matInput placeholder="Provide Occupation Details"
+                                            formControlName="occupationText">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <mat-label>Experience</mat-label>
+                                        <mat-select formControlName="selectedExperience"
+                                            [(ngModel)]="selectedExperience">
+                                            <mat-option *ngFor="let experience of experienceOptions"
+                                                [value]="experience">
+                                                {{experience}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-8" *ngIf="selectedExperience=='Other'">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <input matInput placeholder="Provide Experience Details"
+                                            formControlName="experienceText">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <mat-label>Instruction Preference</mat-label>
+                                        <mat-select formControlName="instructionPreference"
+                                            [(ngModel)]="instructionPreference">
+                                            <mat-option *ngFor="let preference of instructionPreferenceOptions"
+                                                [value]="preference">
+                                                {{preference}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </mat-card>
+
+                        <mat-card class="mb-3">
+                            <mat-card-title>Social Network</mat-card-title>
+
+                            <div class="row mb-4">
+                                <h5 class="mb-3"></h5>
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <input matInput placeholder="Twitter Handle" formControlName="twitter">
+                                        <span matPrefix><i class="fa fa-twitter"
+                                                aria-hidden="true"></i>https://www.twitter.com/</span>
+
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="fill" class="full-width-field">
+                                        <input matInput placeholder="Linkedin Username" formControlName="linkedin">
+                                        <span matPrefix><i class="fa fa-linkedin"
+                                                aria-hidden="true"></i>https://www.linkedin.com/in/</span>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </mat-card>
+
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" mat-raised-button color="accent"
+                                    matStepperNext>Back</button>
+                                <button class="btn btn-primary" mat-raised-button color="accent"
+                                    (click)="submit('SUBMIT_START_COURSE')">Submit & Start New Course</button>
+                                <button class="btn btn-primary" id="tutoring" mat-raised-button color="accent"
+                                    (click)="submit('SUBMIT_START_TUTOR')">Submit & Signup For Tutoring</button>
+                                <button class="btn btn-primary" id="register" mat-raised-button color="accent"
+                                    (click)="submit('SUBMIT')">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

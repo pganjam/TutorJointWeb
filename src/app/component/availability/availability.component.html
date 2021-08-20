@@ -1,0 +1,51 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Availability"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<!-- Course Details Start-->
+
+<div class="tcd-availability sec-spacer">
+    <div class="container">
+        <div class="row">
+            <form name="form">
+                <div class="col-lg-12 mb-md-30">
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker1" placeholder="Pick An Appointment Day"
+                            [formControl]="date" (dateChange)="addEvent('change', $event)">
+
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                    <div class="tcd-tutors sec-spacer">
+                        <div class="tcd-team">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-3">
+                                        <button *ngFor="let element of slots;let i = index" type="button"
+                                            (click)="selectSlot(element)" [ngClass]="{
+                                                            'unavailable' : unavailableSlots.indexOf(element.value)>=0, 
+                                                            'selected' : selectedSlots.indexOf(element.value)>=0, 
+                                                            'available': unavailableSlots.indexOf(element.value)<0
+                                                           }"
+                                            [disabled]="!(unavailableSlots.indexOf(element.value)<0)">
+                                            {{element?.value}}
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-3">
+                                        <button class="btn btn-primary mr-2 mb-2" style="float: right; width: 250px;"
+                                            mat-raised-button color="accent" (click)="submit()">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Course Details End-->

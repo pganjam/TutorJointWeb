@@ -1,0 +1,100 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Contact Us"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<!-- Contact Part Start-->
+<div class="tcd-contact-part sec-spacer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-md-30">
+                <!-- Contact Section Start -->
+                <div class="tcd-contact-form">
+                    <div id="formMessages"></div>
+                    <form id="contactForm" class="contact-form padding-0" method="post" action="mailer.php">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <input name="name" id="name" class="form-control" placeholder="Name"
+                                            type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <input name="email" id="email" class="form-control" placeholder="Email"
+                                            type="email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <input name="subject" id="subject" class="form-control" placeholder="Subject"
+                                            type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <textarea cols="40" rows="10" id="message" name="message"
+                                            class="textarea form-control" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <input class="readon" type="submit" value="Send Message">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <!-- Contact Section End -->
+            </div>
+            <div class="col-lg-4">
+                <div class="tcd-contact-info">
+                    <div class="single-icon">
+                        <div class="icon-part">
+                            <i class="icofont-envelope-open"></i>
+                        </div>
+                        <div class="info-part">
+                            <a href="mailto:tutorjoint2020@gmail.com">support@tutorjoint.com</a>
+                        </div>
+                    </div>
+                    <div class="single-icon">
+                        <div class="icon-part">
+                            <i class="icofont-stock-mobile"></i>
+                        </div>
+                        <div class="info-part">
+                            <a href="tel:+(763)-200-9358">+(763)-200-9358</a>
+                        </div>
+                    </div>
+                    <div class="single-icon">
+                        <div class="icon-part">
+                            <i class="icofont-location-pin"></i>
+                        </div>
+                        <div class="info-part">
+                            <span>16307 Beverly Dr, Eden Prairie, MN 55347</span>
+                        </div>
+                    </div>
+                    <ul class="social-icon">
+                        <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                        <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                        <li><a href="#"><i class="icofont-google-plus"></i></a></li>
+                        <li><a href="#"><i class="icofont-pinterest"></i></a></li>
+                        <li><a href="#"><i class="icofont-youtube-play"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Part End-->
+
+<!-- Map Section Start -->
+<section id="tcd-map" class="tcd-map pb-80">
+    <h2 class="d-none">Google Map</h2>
+    <div class="container">
+        <div id="googleMap"></div>
+    </div>
+</section>
+<!-- Map Section End -->

@@ -1,0 +1,33 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Create Post"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<div class="create-post sec-spacer">
+    <div class="container">
+        <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+            <mat-card class="mb-3">
+                <div class="row mb-4">
+                    <div class="col-md-12 ">
+                        <label class="post-title"><h4>Title</h4></label>
+                        <input type="text" [formControlName]="'title'" class="form-control" placeholder="Title">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <label class="post-content"><h4>Content</h4></label>
+                        <ckeditor [editor]="editor" [formControlName]="'body'"></ckeditor>
+                    </div>
+                </div>
+            </mat-card>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <button class="btn btn-primary mr-2 mb-2" style="float: right; width: 100px;" mat-raised-button
+                        color="accent" (click)="addPost()">Post</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

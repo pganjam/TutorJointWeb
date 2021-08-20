@@ -1,0 +1,40 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Register"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<!-- Registration Part Start-->
+<div class="tcd-registeration-part sec-spacer">
+    <div class="col-md-6 offset-md-3 mt-5">
+        <div class="card">
+            <h3 class="card-header">Enter Details</h3>
+            <div class="card-body">
+                <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="inputUsername" class="sr-only">Enter Username</label>
+                        <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control"
+                            placeholder="Username" required="" autofocus="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="sr-only">Enter Email</label>
+                        <input type="text" id="inputEmail" [formControlName]="'email'" class="form-control"
+                            placeholder="Email" required="" autofocus="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="sr-only">Enter Password</label>
+                        <input type="password" id="inputPassword" [formControlName]="'password'"
+                            class="form-control" placeholder="Password" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
+                        <input type="password" id="inputConfirmPassword" [formControlName]="'confirmPassword'"
+                            class="form-control" placeholder="Confirm Password" required="">
+                    </div>
+                    <button class="btn btn-primary">
+                        Sign up
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Registration Part End-->

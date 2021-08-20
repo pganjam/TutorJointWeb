@@ -1,0 +1,46 @@
+
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Category"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<div class="tcd-course-item sec-spacer">
+    <div class="container">
+        <form [formGroup]="categoriesForm" (ngSubmit)="onSubmit()">
+            <div class="row mb-50">
+                <div *ngFor="let category of categories;let i = index" class="col-lg-3 col-md-6">
+                    <mat-card class="mb-3 mat-elevation-z0">
+                        <mat-card-header>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div>
+                                <button class="category" type="button" (click)="selectCategory(i)" [ngClass]="{
+                                    'selected' : category.flag == true, 
+                                    'category': category.flag == false
+                                }">
+                                    {{category.description}}
+                                </button>
+                            </div>
+                            <div *ngFor="let subCategory of category.subCategories;let j = index">
+                                <button class="subcategory" type="button"
+                                    (click)="selectSubCategory(i, j)" [ngClass]="{
+                                    'selected'      :  subCategory.flag == true || category.flag == true, 
+                                    'subcategory'   :  subCategory.flag == false && category.flag == false
+                                }">
+                                    {{subCategory.description}}
+                                </button>
+                            </div>
+                        </mat-card-content>
+                        <mat-card-actions>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <button class="btn btn-primary mr-2 mb-2" type="submit" style="float: right; width: 100px;" 
+                        mat-raised-button color="accent">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Registration"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+
+
+<!-- Blog Start-->
+<div id="tcd-blog" class="tcd-blog sec-spacer">
+    <div class="register-container">
+        <mat-card class="register-card mat-elevation-z8">
+            <mat-card-content>
+                <div class="col-lg-6 col-md-6 mb-30">
+                    <button *ngIf="!isTutor" type="submit" class="block" mat-raised-button color="accent"
+                        [routerLink]="'/register-tutor'"><span>Register as a Tutor</span></button>
+                    <button *ngIf="isTutor" type="submit" class="block" mat-raised-button color="accent"
+                        [routerLink]="'/tutor-page/' + this.userId"><span>My Tutor Page</span></button>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-30">
+                    <button *ngIf="!isStudent" type="submit" class="block" mat-raised-button color="accent"
+                        [routerLink]="'/register-student'"><span>Register as a Student</span></button>
+                    <button *ngIf="isStudent" type="submit" class="block" mat-raised-button color="accent"
+                        [routerLink]="'/student-page'"><span>My Student Page</span></button>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-30">
+                    <button *ngIf="!(isTutor || isStudent)" type="submit" class="block" mat-raised-button color="accent"
+                        [routerLink]="'/courses'"><span>Continue as Guest</span></button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<!-- Blog End-->

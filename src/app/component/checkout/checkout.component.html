@@ -1,0 +1,56 @@
+<!-- Breadcrumbs Start -->
+<app-breadcrumbs title="Shopping Cart"></app-breadcrumbs>
+<!-- Breadcrumbs End -->
+
+<div class="tcd-course-cart sec-spacer">
+    <div class="container">
+        <form>
+            <h6 class="course-cart-heading">{{Items.length}} Courses in Cart</h6>
+            <div class="row">
+                <div class="col-lg-9 mb-md-30">
+                    <div class="cart-item" *ngFor="let item of Items">
+                        <div class="single-cart align-items-center clearfix">
+                            <div class="left-part">
+                                <div class="cart-image">
+                                    <img src="assets/images/cart/1.jpg" alt="Cart Image">
+                                </div>
+                                <div class="cart-desc">
+                                    <h4 class="cart-title"><a href="#">{{item?.title}}</a>
+                                    </h4>
+                                    <h6 class="cart-author">By <a href="#">{{item?.tutor_id}}</a></h6>
+                                </div>
+                            </div>
+                            <div class="right-part">
+                                <div class="cart-remove">
+                                    <button class="btn btn-primary mr-2 mb-2" mat-mini-fab>
+                                        <mat-icon class="delete" (click)="removeItem(item?.id)">delete
+                                        </mat-icon>
+                                    </button>
+                                </div>
+                                <div class="cart-price">
+                                    <span class="sell-price">$35.00</span>
+                                    <span class="previous-price">$75.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="cart-price">
+                        <table>
+                            <tr>
+                                <td class="text-left">Sub Total</td>
+                                <td class="text-right">$70.00</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Total</td>
+                                <td class="text-right">$70.00</td>
+                            </tr>
+                        </table>
+                        <button class="readon" (click)="submit()">Proceed to checkout</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

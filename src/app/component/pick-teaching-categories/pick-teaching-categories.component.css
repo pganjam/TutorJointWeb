@@ -1,0 +1,47 @@
+.category {
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: gray;
+}
+
+.category:hover {
+    color: white;
+    background-color: black;
+}
+
+.selected-category {
+    color: white;
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: black;
+}
+
+.subcategory {
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+.subcategory:hover {
+    background-color: gold;
+}
+
+.selected-subcategory {
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: gold;
+}
+
+

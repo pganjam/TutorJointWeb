@@ -1,0 +1,21 @@
+.available {
+    width: 250px;
+    background-color: lightgray;
+    margin: 5px;
+    padding: 10px;
+    border: 0px; 
+    border-radius: 5px;
+}
+
+.available:hover {
+    background-color: gold;
+}
+
+.selected {
+    width: 250px;
+    background-color: gold;
+    margin: 5px;
+    padding: 10px;
+    border: 0px; 
+    border-radius: 5px;
+}
